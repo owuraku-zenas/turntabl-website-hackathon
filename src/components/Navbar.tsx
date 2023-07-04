@@ -28,7 +28,7 @@ const Navbar = (props: Props) => {
 
 
     return (
-        <nav className="absolute bg-transparent/5 shadow-md w-full">
+        <nav className="absolute bg-white/10 shadow-md w-full">
             <div className='max-w-7xl mx-auto px-2 sm:px-6 lg:px-8'>
                 <div className='relative flex h-16 items-center justify-center'>
                     <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -46,7 +46,7 @@ const Navbar = (props: Props) => {
                         <div className="flex flex-shrink-0 items-center justify-center w-full sm:w-auto">
                         <Link href="/">
                             <img className="block h-8 w-auto lg:hidden" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" />
-                            <img className="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" />
+                            <img className="hidden h-8 w-auto lg:block" src="/images/TT Logo.png" alt="Your Company" />
                         </Link>
                         </div>
                         <div className="hidden sm:ml-6 sm:block w-full">
@@ -56,7 +56,7 @@ const Navbar = (props: Props) => {
                                     <Link
                                         key={index}
                                         href={item.path}
-                                        className="text-gray-300 hover:border-b-2 hover:text-white px-3 py-2 text-sm font-bold tracking-widest"
+                                        className="text-gray-300 border-b-2 border-transparent hover:border-b-2 hover:border-white hover:text-white px-3 py-2 text-sm font-bold tracking-widest"
                                     >
                                         {item.name}
                                     </Link>
@@ -68,7 +68,7 @@ const Navbar = (props: Props) => {
                                     >
                                         Blog
                                     </a>
-                                <Link href="/contact-us" className='text-gray-300 hover:bg-white hover:text-gray-800 rounded-md px-3 py-2 text-sm font-bold tracking-widest border-2'>Contact Us</Link>
+                                <Link href="/contact-us" className='text-gray-300 hover:border-b-2 hover:text-white px-3 py-2 text-sm font-bold tracking-widest'>Contact Us</Link>
                             </div>
                         </div>
                     </div>
