@@ -11,7 +11,7 @@ const navItems = [
     },
     {
         name: "Our Services",
-        path: "/about-us",
+        path: "/our-services",
     },
     {
         name: "Our Approach",
