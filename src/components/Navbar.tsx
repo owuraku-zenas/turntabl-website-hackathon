@@ -41,11 +41,6 @@ const Navbar = (props: Props) => {
     return (
         <nav className={color ? "fixed bg-white text-black shadow-sm w-full" : "absolute bg-white/10 text-white shadow-md w-full"}>
             <div className='max-w-7xl mx-auto px-2 sm:px-6 lg:px-8'>
-
-    return (
-        <nav className="sticky top-0 h-0  shadow-md w-full">
-            <div className=''>
-            <div className='max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 '>
                 <div className='relative flex h-16 items-center justify-center'>
                     <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                         <button type="button" onClick={() => toggleNav()} className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
@@ -91,7 +86,6 @@ const Navbar = (props: Props) => {
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
             {
                 isOpen && (
