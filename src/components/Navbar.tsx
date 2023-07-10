@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 type Props = {}
 
@@ -36,7 +36,9 @@ const Navbar = (props: Props) => {
         setIsOpen(!isOpen);
     }
 
-    window.addEventListener('scroll', changeColor);
+    useEffect(() => {
+        window.addEventListener('scroll', changeColor);
+    })
 
     return (
         <nav className={color ? "fixed bg-white text-black shadow-sm w-full" : "absolute bg-white/10 text-white shadow-md w-full"}>
