@@ -1,9 +1,11 @@
+"use client";
+import { motion } from "framer-motion";
+import { useState } from "react"
+
 import Header from '@/components/Header'
 import React from 'react'
-
-
-import { SocialIcon } from 'react-social-icons'
 import { FiArrowUpRight, FiLinkedin, FiTwitter } from "react-icons/fi";
+import AboutModal from "@/components/AboutModal";
 type Props = {}
 
 const people = [
@@ -11,27 +13,31 @@ const people = [
     image: "IMG_9005.jpg",
     name: "Inusa Ibrahim",
     position: "Head of Operations, Ghana",
+    bio: "With a background in physics and a passion for tech, Inusa is experienced in STEM education and working with young people, which helps him build strong relationships with team members and navigate complex situations. He is a proud West and Northern African Nomad, influenced by his grandparents. His favorite words are \"practicality\" and \"simplicity, \" and he enjoys a good logistical challenge. At the same time, he finds stimulation in working with international teammates and clients and loves surrounding himself with people of different cultures. Ibrahim is excited to be part of turntabl, and to contribute to creating a unique and dynamic tech community in Ghana.",
     linkedin: "",
     twitter: "",
   },
   {
     image: "IMG_9308.jpg",
-    name: "Inusa Ibrahim",
+    name: "Deborah Asamoah",
     position: "Head of Operations, Ghana",
+    bio: "With a background in physics and a passion for tech, Inusa is experienced in STEM education and working with young people, which helps him build strong relationships with team members and navigate complex situations. He is a proud West and Northern African Nomad, influenced by his grandparents. His favorite words are \"practicality\" and \"simplicity, \" and he enjoys a good logistical challenge. At the same time, he finds stimulation in working with international teammates and clients and loves surrounding himself with people of different cultures. Ibrahim is excited to be part of turntabl, and to contribute to creating a unique and dynamic tech community in Ghana.",
     linkedin: "",
     twitter: "",
   },
   {
     image: "IMG_9383.jpg",
-    name: "Inusa Ibrahim",
+    name: "Ekow ",
     position: "Head of Operations, Ghana",
+    bio: "With a background in physics and a passion for tech, Inusa is experienced in STEM education and working with young people, which helps him build strong relationships with team members and navigate complex situations. He is a proud West and Northern African Nomad, influenced by his grandparents. His favorite words are \"practicality\" and \"simplicity, \" and he enjoys a good logistical challenge. At the same time, he finds stimulation in working with international teammates and clients and loves surrounding himself with people of different cultures. Ibrahim is excited to be part of turntabl, and to contribute to creating a unique and dynamic tech community in Ghana.",
     linkedin: "",
     twitter: "",
   },
   {
     image: "IMG_9947.jpg",
-    name: "Inusa Ibrahim",
+    name: "Emma",
     position: "Head of Operations, Ghana",
+    bio: "With a background in physics and a passion for tech, Inusa is experienced in STEM education and working with young people, which helps him build strong relationships with team members and navigate complex situations. He is a proud West and Northern African Nomad, influenced by his grandparents. His favorite words are \"practicality\" and \"simplicity, \" and he enjoys a good logistical challenge. At the same time, he finds stimulation in working with international teammates and clients and loves surrounding himself with people of different cultures. Ibrahim is excited to be part of turntabl, and to contribute to creating a unique and dynamic tech community in Ghana.",
     linkedin: "",
     twitter: "",
   },
@@ -40,10 +46,18 @@ const people = [
 
 const page = (props: Props) => {
 
+  const [modal, setModal] = useState(false);
+  const [myp, setMyp] = useState();
+
+  const handleModal = () => { setModal(!modal) }
+  const handleMyP = (element: any) => { 
+    setMyp(element) 
+  }
+
 
   return (
 
-    <section className='min-h-[100vh] w-full'>
+    <main className='min-h-[100vh] w-full'>
       <Header
         title='About Us'
         description='We Provide Innovative Software Engineering Solutions To Businesses All Over The World.'
@@ -58,7 +72,19 @@ const page = (props: Props) => {
         </div>
 
         <div className='w-[80%] sm:w-[50%] flex items-center' >
-          <img
+          <motion.img
+            initial={{
+              x: 500,
+              opacity: 0,
+            }}
+            whileInView={{
+              x: 0,
+              opacity: 1,
+            }}
+            transition={{
+              duration: 1.2,
+            }}
+            viewport={{ once: true }}
             src="/images/BOwusuNyantekyi_turntabl_pre-edits_20220602_022_V2.jpg"
             alt='logo'
             width={500}
@@ -71,7 +97,19 @@ const page = (props: Props) => {
       <section className='max-w-7xl mx-auto mt-20 sm:mt-32 px-2 sm:px-6 lg:px-8 flex sm:flex-row flex-col-reverse gap-4 sm:gap-0 justify-between items-center'>
 
         <div className='w-[80%] sm:w-[50%] flex items-center' >
-          <img
+          <motion.img
+            initial={{
+              x: -200,
+              opacity: 0,
+            }}
+            whileInView={{
+              x: 0,
+              opacity: 1,
+            }}
+            transition={{
+              duration: 1.2,
+            }}
+            viewport={{ once: true }}
             src="/images/why-turntabl.png"
             alt='logo'
             width={500}
@@ -97,8 +135,19 @@ const page = (props: Props) => {
         </div>
 
         <div className='w-[80%] sm:w-[50%] flex items-center content-end' >
-          {/* babe */}
-          <img
+          <motion.img
+            initial={{
+              x: 500,
+              opacity: 0,
+            }}
+            whileInView={{
+              x: 0,
+              opacity: 1,
+            }}
+            transition={{
+              duration: 1.2,
+            }}
+            viewport={{ once: true }}
             src="/images/BOwusuNyantekyi_turntabl_pre-edits_20220602_026_V2.jpg"
             alt='logo'
             width={500}
@@ -108,20 +157,21 @@ const page = (props: Props) => {
         </div>
       </section>
 
+
       <section className='max-w-7xl mx-auto mt-32 px-2 sm:px-6 lg:px-8'>
         <h1 className='text-[50px] my-20 '>Meet
           <span className=' text-[#b0b0ff] '> Our </span>
-          People</h1>
+          People
+        </h1>
 
-
-        <div className='flex flex-row flex-wrap gap-8 w-full '>
+        <div className='flex flex-row flex-wrap justify-around gap-8 w-full '>
           {people.map(
-            (person) => (
-              <div className="card" style={{ backgroundImage: `url("/images/${person.image}")` }}>
+            (person, index) => (
+              <div key={index} className="card" style={{ backgroundImage: `url("/images/${person.image}")` }}>
                 <div className="content" >
                   <div className='w-[80%] flex flex-row justify-between items-center my-2'>
                     <h1 className='text-[19px]'>{person.name}</h1>
-                    <FiArrowUpRight />
+                    <FiArrowUpRight onClick={() => (handleModal(), handleMyP(person))} />
                   </div>
 
                   <h1>{person.position}</h1>
@@ -136,11 +186,18 @@ const page = (props: Props) => {
           )}
 
         </div>
-
-
       </section>
 
-    </section>
+
+      {modal ?
+        <AboutModal
+          modal={modal}
+          handleModal={handleModal}
+          person={myp}
+        />
+        : null}
+
+    </main>
 
   )
 }
