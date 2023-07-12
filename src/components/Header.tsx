@@ -1,9 +1,6 @@
 import localFont from 'next/font/local'
 import React from 'react'
 
-
-
-
 const mondwest = localFont({
     src: [
       {
