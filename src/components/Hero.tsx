@@ -1,4 +1,6 @@
+"use client";
 import React from 'react'
+import { Cursor, useTypewriter } from "react-simple-typewriter"
 import localFont from 'next/font/local'
 
 type Props = {}
@@ -19,14 +21,18 @@ const mondwest = localFont({
 })
 
 const Hero = (props: Props) => {
+  const [text, count] = useTypewriter({
+    words: ["Akwaaba :) We are Turntabl", "The Next Rev¤lution in Software Engineering", "We have a desire to craft something"],
+    loop: true,
+    delaySpeed: 2000,
+  });
+
   return (
     <section className='bg-slate-900 bg-cover bg-center bg-no-repeat h-screen w-full' style={{backgroundImage: 'url("/images/contact-header.jpg")'}}>
-        <div className='bg-transparent/40 w-full h-full  flex items-center justify-center'>
-            <div className={`${mondwest.variable} font-mondwest max-w-7xl w-full px-2 sm:px-6 lg:px-8 flex flex-col items-center gap-4 md:items-start text-white text-6xl md:text-7xl`}>     
-                <h1>The Next</h1>
-                <h1>Rev¤lution</h1>
-                <h1>in Software</h1>
-                <h1>Engineering</h1>   
+        <div className='bg-transparent/50 w-full h-full  flex items-center md:items-end justify-center'>
+            <div className={`${mondwest.variable} font-mondwest md:mb-[16%] max-w-4xl w-full px-2 sm:px-6 lg:px-8 flex items-center gap-4 justify-center text-white text-5xl md:text-7xl`}>     
+                <h1 className='text-center'>{text}<Cursor cursorColor="white"/></h1>
+                
             </div>
         </div>
     </section>

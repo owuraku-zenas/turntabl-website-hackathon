@@ -39,7 +39,7 @@ const Navbar = (props: Props) => {
     window.addEventListener('scroll', changeColor);
 
     return (
-        <nav className={color ? "fixed bg-white text-black shadow-sm w-full" : "absolute bg-white/10 text-white shadow-md w-full"}>
+        <nav className={color ? "fixed bg-white text-black shadow-sm w-full" : "absolute  bg-white/10 sm:bg-transparent text-white shadow-md sm:shadow-none w-full"}>
             <div className='max-w-7xl mx-auto px-2 sm:px-6 lg:px-8'>
                 <div className='relative flex h-16 items-center justify-center'>
                     <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -61,7 +61,7 @@ const Navbar = (props: Props) => {
                             </Link>
                         </div>
                         <div className="hidden sm:ml-6 sm:block w-full">
-                            <div className="flex space-x-4 w-full justify-end">
+                            <div className="flex space-x-4 w-full text-center text-base justify-end">
 
                                 {navItems.map((item, index) => (
                                     <Link
@@ -74,7 +74,7 @@ const Navbar = (props: Props) => {
                                     </Link>
                                 ))}
                                 <a
-                                    href="https://www.google.com"
+                                    href="https://medium.com/@turntabl.io"
                                     target="_blank"
                                     className={color ? "border-b-2 border-transparent hover:border-b-2 hover:border-black hover:font-bold px-3 py-2 text-sm font-bold tracking-widest" : "border-b-2 border-transparent hover:border-b-2 hover:border-white hover:text-white px-3 py-2 text-sm font-bold tracking-widest"}>
                                     Blog
