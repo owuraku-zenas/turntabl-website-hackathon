@@ -1,6 +1,6 @@
+"use client";
 import emailjs from '@emailjs/browser'
-import { FormEvent, useRef, useEffect, useState } from "react";
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { FormEvent, useRef, useState } from "react";
 import { Switch } from '@headlessui/react'
 import Link from 'next/link'
 
@@ -12,7 +12,6 @@ export default function ContactForm() {
   const form = useRef<HTMLFormElement>(null);
   
   const sendEmail = (e: FormEvent) => {
-    console.log("hi")
     e.preventDefault();
     if(form.current != null){emailjs.sendForm('service_h4ijpes', 'contact_form', form.current, 'STO3kgOSTbVVORIL8')}
   };

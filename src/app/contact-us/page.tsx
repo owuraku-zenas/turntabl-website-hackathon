@@ -1,4 +1,3 @@
-"use client";
 import Header from "@/components/Header";
 import React, { useRef } from "react";
 import ContactForm from "./ContactForm";
